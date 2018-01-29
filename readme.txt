@@ -1,10 +1,10 @@
 === Eletheme ===
 
 Contributors: dudaster
-Tags: Custom Menu, Custom Logo, Custom Header, Featured Images, Right Sidebar, Sticky Posts, Theme Options, Threaded Comments, Two Columns, Translation Ready, Blog
+Tags: Theme builder, Elementor
 
 Requires at least: 4.0
-Tested up to: 4.7.2
+Tested up to: 4.9.2
 Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -71,6 +71,9 @@ Yes. the post type for the prodycts is product so you can use template names lik
 Check https://www.eletemplator.com/ or https://github.com/dudaster/eletheme
 
 == Changelog ==
+
+= 1.0.3 =
+* Bugs fixed 
 
 = 1.0.2 =
 * Cleaning the code 
