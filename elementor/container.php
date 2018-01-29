@@ -293,9 +293,8 @@ function passtheid( $widget ) {
 /* Set the current(global) post to widget rendering not the elementor_library theme post
 /*-----------------------------------------------------------------------------------*/
 
-if (is_user_logged_in()) add_action('elementor/frontend/widget/before_render', function($widget){
+add_action('elementor/frontend/widget/before_render', function($widget){
 	global $wp_query,$post;
-//	if(!$wp_query->post->ID) return;
 	$post = get_post( $wp_query->post->ID );
 	setup_postdata( $post ); 
 }, 10, 1);
