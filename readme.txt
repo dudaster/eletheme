@@ -10,7 +10,7 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Theme creator for Elementor Page Builder plugin.
-Copyright (C) 2018 Eletemplator https://www.eletemeplator.com/
+Copyright (C) 2018 Eletemplator https://www.eletemplator.com/
 
 == Description ==
 
@@ -71,6 +71,9 @@ Yes. the post type for the prodycts is product so you can use template names lik
 Check https://www.eletemplator.com/ or https://github.com/dudaster/eletheme
 
 == Changelog ==
+
+= 1.0.1 =
+* Added default templates for [search] page and [404] page
 
 = 1.0.0 =
 * Initial release
