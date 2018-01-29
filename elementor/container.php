@@ -36,19 +36,19 @@ function get_template_name($final=""){ //this function gets the name of the temp
 
 		$finals = $final ? "_".$final : "";
 
-		$type=get_post_type();// iau post type
+		$type=get_post_type();
 
 		if($type=="page" || $type=="elementor_library" || is_in_templates($type,"","[none]")) return false;
 
-//acum trebuie sa caut daca nu e setat ceva pe catogorie
+//check for term, this should be revised in the future because we check only with one taxonomy!!!!
 	$term_id=get_queried_object()->term_id;
 	$taxonomy=get_queried_object()->taxonomy;
-	if (!$term_id && is_single()){// daca e post atunci sa vedem daca are categorie
+	if (!$term_id && is_single()){// if post, check for term
 			$taxonomy_names = get_post_taxonomies( );
-			$terms = wp_get_post_terms( $post->ID, $taxonomy_names[0] );// iau doar din prima taxonomie
+			$terms = wp_get_post_terms( $post->ID, $taxonomy_names[0] );// we take the first taxonomy
 			$term_id=$terms[0];//iau doar prima cateogrie
 	}
-	if($term_id){ // daca am gasit prima categorie
+	if($term_id){ // if term_id found
 		$found=false;
 		$term = get_term($term_id,$taxonomy); //iau datele
 
@@ -98,7 +98,7 @@ function post_type_container(){
 		$archive_type= "[category]";
 	}
 
-	$page = get_current_template($archive_type); // daca nu am gasit categorie luam pagina post_type-ului
+	$page = get_current_template($archive_type); // we get the archive type template
 
 	if (!$page){
 		$is_category=false;
@@ -145,6 +145,9 @@ add_action( 'eletheme_before_main_content', 'post_type_container', 25 );
 /*-----------------------------------------------------------------------------------*/
 function post_type_content($content){
 	global $post,$wp_query; 
+
+	if ($wp_query->queried_object_id  !=  $post->ID ) return $content; // prevents infinite loop
+
 	if (is_single()) {
 		$after="[single]";
 	} else {
