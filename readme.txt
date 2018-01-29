@@ -14,7 +14,7 @@ Copyright (C) 2018 Eletemplator https://www.eletemplator.com/
 
 == Description ==
 
-Create you theme using Elementor Plugin with this naming (replace the curly brackets with the actual value):
+Create your own theme using Elementor Plugin with this naming (replace the curly brackets with the actual value):
 
 [body] - for header and footer
 _[default] - container for all post types
