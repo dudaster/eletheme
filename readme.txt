@@ -72,6 +72,9 @@ Check https://www.eletemplator.com/ or https://github.com/dudaster/eletheme
 
 == Changelog ==
 
+= 1.0.2 =
+* Cleaning the code 
+
 = 1.0.1 =
 * Added default templates for [search] page and [404] page
 
