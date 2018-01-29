@@ -5,7 +5,7 @@ Tags: Theme builder, Elementor
 
 Requires at least: 4.0
 Tested up to: 4.9.2
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,6 +21,7 @@ _[default] - container for all post types
 _{{post->type}} - container for the post->type slug
 _{{post->type}}_{{term->slug}}_[archive] - container for a specific category archive
 _{{post->type}}_[archive] - container for archive of the post type
+_{{post->type}}_[category] - container for archive of a category
 _{{post->type}}_[loop] - summary template of a post in a loop
 _{{post->type}}_[single] - single template of a post
 
@@ -71,6 +72,9 @@ Yes. the post type for the prodycts is product so you can use template names lik
 Check https://www.eletemplator.com/ or https://github.com/dudaster/eletheme
 
 == Changelog ==
+
+= 1.0.4 =
+* Added Category archive template 
 
 = 1.0.3 =
 * Bugs fixed 
