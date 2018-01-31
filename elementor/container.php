@@ -230,6 +230,7 @@ function parse_content($t,$post=NULL,$content=""){
 
 /**  Set custom vars **/
 	$id=$post->ID;
+	if($id) $permalink=get_permalink($id);
 	$featured_image=featured_image_before_content();
 	$title=$var->name . $var->post_title;
 	$name=get_queried_object()->name;
@@ -239,6 +240,10 @@ function parse_content($t,$post=NULL,$content=""){
 
 	if(!is_single() && !$content) $content=$var->post_content; // if it is an elementor format it would not work... please research a little bit | nu merge sa se cheme elementor de id cand este in ea...
 	$post_excerpt = $post_excerpt ? $post_excerpt : get_my_excerpt($content);
+
+	// add your own custom vars
+
+	//$custom_vars=apply_filters( 'custom_vars', 'custom' ); //soon
 
 /** end seting custom vars **/
 // replacing the keystrings from the template with the actual values. (ie for $content you have {content})
