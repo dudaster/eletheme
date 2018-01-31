@@ -121,11 +121,11 @@ function post_type_container(){
 		$before.=$top_archive;
 		$after=$bottom_archive.$after;
 		if (!($top_archive && !$bottom_archive)) {
-			define('ARCHIVE_LOOP',true); //it will be deprecated soon we'll use only posts widget
+			define('ARCHIVE_LOOP',true); //if we don't use posts widget for loop
 
 		}
 		else {
-			define('ARCHIVE_ELEMENT',true); // it will be deprecated soon 
+			define('ARCHIVE_ELEMENT',true); // we use _[loop]
 
 		}
 
@@ -146,7 +146,7 @@ add_action( 'eletheme_before_main_content', 'post_type_container', 25 );
 function post_type_content($content){
 	global $post,$wp_query; 
 
-	if ($wp_query->queried_object_id  !=  $post->ID ) return $content; // prevents infinite loop
+	if ($wp_query->queried_object_id  !=  $post->ID && !defined('ARCHIVE_LOOP')) return $content; // prevents infinite loop
 
 	if (is_single()) {
 		$after="[single]";
