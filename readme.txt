@@ -73,6 +73,9 @@ Check https://www.eletemplator.com/ or https://github.com/dudaster/eletheme
 
 == Changelog ==
 
+= 1.0.7 =
+* added support for woocommerce 3.3
+
 = 1.0.6 =
 * added permalink keyword
 
