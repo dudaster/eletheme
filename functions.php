@@ -1,7 +1,4 @@
 <?php
-//wp_enqueue_script( 'myscript', get_template_directory_uri() . "/js/jquery.smartmenus.min.js",false, GENERATE_VERSION, true ); must be deleted... elementor pro has it now
-//wp_enqueue_script( 'sticky', get_template_directory_uri() . "/js/jquery.sticky.js",false, GENERATE_VERSION, true ); moved to eleplug
-//wp_enqueue_script( 'mobile-menu', get_template_directory_uri() . "/js/mobile-menu.js",false, GENERATE_VERSION, true ); moved to eleplug
 
 add_filter( 'emoji_svg_url', '__return_false' );
 remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
@@ -187,6 +184,17 @@ function trysomething(){
 			
 			return $fragments;
 		}
+
+
+
+/*******************************
+* Add woocommerce theme support
+********************************/
+
+add_theme_support('woocommerce');
+
+remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
+remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
 
 
 /*****************************

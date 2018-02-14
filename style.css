@@ -4,7 +4,7 @@ Theme URI: https://www.eletemplator.com
 Author: Liviu Duda
 Author URI: https://www.leadpro.ro
 Description: Theme builder for Elementor. It works with Elementor but upgrade to Elementor PRO to unlock it's full potential (it worths every penny). Soon we'll come with a complementary plugin that can help you build woocommerce product pages and custom archive post lists. Check other Elementor addons to help build your desired website.
-Version: 1.0.6
+Version: 1.0.7
 License: GNU General Public License
 License URI: https://www.gnu.org/licenses/gpl.html
 Tags: Theme builder, elementor
@@ -155,8 +155,14 @@ h1:empty, h2:empty, h3:empty, h4:empty {
   .toggle-nav.toggled i.fa:before {
     content: "\f00d";
   }
-
-  /* some things should be shown in elementor editor */
+/* field stuff */
+textarea, input, select {
+    padding: 8px;
+    font-size: inherit;
+    border: 1px solid #d3d3d3;
+    margin-right: 10px;
+}
+/* some things should be shown in elementor editor */
 
   #elementor .eletheme-menu-list-items, #elementor .sm.elemenu {
     display:block;
