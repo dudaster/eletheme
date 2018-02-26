@@ -5,7 +5,7 @@ Tags: Theme builder, Elementor
 
 Requires at least: 4.0
 Tested up to: 4.9.2
-Stable tag: 1.0.7
+Stable tag: 1.0.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -72,6 +72,10 @@ Yes. the post type for the prodycts is product so you can use template names lik
 Check https://www.eletemplator.com/ or https://github.com/dudaster/eletheme
 
 == Changelog ==
+
+
+= 1.0.8 =
+* added support for latest Eementor PRO Version
 
 = 1.0.7 =
 * added support for woocommerce 3.3
