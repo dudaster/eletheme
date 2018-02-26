@@ -76,6 +76,12 @@ function get_template_name($final=""){ //this function gets the name of the temp
 	return false;
 
 }
+
+function clean_header($string){//clean some stuff to behave like a normal theme
+    $find = 'elementor-widget';
+    return preg_replace('/('.$find.'(?=.*'.$find.'.*))/', '', $string);
+}
+
 /*-----------------------------------------------------------------------------------*/
 /* Let's get the container for the post_type content
 /*-----------------------------------------------------------------------------------*/
@@ -105,7 +111,7 @@ function post_type_container(){
 	}
 
 	list($before,$after)=explode("{{content}}",get_eletheme($page->ID));
-
+	$before=clean_header($before);
 	//if it is archive than include the [archive] template
 	if ( !is_single() && !is_404() && !is_search() && !$is_category) { //if we don't have category template would fetch for archive
 		$archive_type="[archive]";
@@ -119,6 +125,7 @@ function post_type_container(){
 		 } 
 		// let's add the archive to the container	
 		$before.=$top_archive;
+		$before=clean_header($before);
 		$after=$bottom_archive.$after;
 		if (!($top_archive && !$bottom_archive)) {
 			define('ARCHIVE_LOOP',true); //if we don't use posts widget for loop
@@ -316,7 +323,7 @@ function set_eletheme(){
 				$page = get_page_by_title('[body]', OBJECT, 'elementor_library');
 		if($page) 
 			list($myhead,$myfooter)=explode("{{content}}",get_eletheme($page->ID));
-		define( 'ELE_HEADER',$myhead);
+		define( 'ELE_HEADER',clean_header($myhead));
 		define( 'ELE_FOOTER',$myfooter);
 }
 add_action( 'wp_head', 'set_eletheme', 23 );
