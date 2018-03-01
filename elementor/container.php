@@ -127,7 +127,7 @@ function post_type_container(){
 		$before.=$top_archive;
 		$before=clean_header($before);
 		$after=$bottom_archive.$after;
-		if (!($top_archive && !$bottom_archive)) {
+		if ($top_archive && $bottom_archive) {
 			define('ARCHIVE_LOOP',true); //if we don't use posts widget for loop
 
 		}
