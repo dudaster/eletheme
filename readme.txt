@@ -73,6 +73,8 @@ Check https://www.eletemplator.com/ or https://github.com/dudaster/eletheme
 
 == Changelog ==
 
+= 1.0.9 =
+* fixed issue with Eementor PRO Posts Widget
 
 = 1.0.8 =
 * added support for latest Eementor PRO Version
