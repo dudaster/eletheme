@@ -301,15 +301,7 @@ function passtheid( $widget ) {
 
 }
 
-/*-----------------------------------------------------------------------------------*/
-/* Set the current(global) post to widget rendering not the elementor_library theme post
-/*-----------------------------------------------------------------------------------*/
 
-add_action('elementor/frontend/widget/before_render', function($widget){
-	global $wp_query,$post;
-	$post = get_post( $wp_query->post->ID );
-	setup_postdata( $post ); 
-}, 10, 1);
 /*-----------------------------------------------------------------------------------*/
 /* Define header and footer constants
 /*-----------------------------------------------------------------------------------*/
