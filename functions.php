@@ -4,6 +4,14 @@ add_filter( 'emoji_svg_url', '__return_false' );
 remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 remove_action( 'wp_print_styles', 'print_emoji_styles' ); 
 
+
+// Add custom keywords to the eletheme
+add_filter( 'eletheme_vars', 'new_keywords');
+function new_keywords( $custom_vars ) {
+    $custom_vars['current_year']=date('Y');
+    return $custom_vars;
+}
+
 add_action( 'after_setup_theme', 'eletheme_setup' );
 function eletheme_setup()
 {
