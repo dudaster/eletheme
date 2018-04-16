@@ -153,7 +153,7 @@ add_action( 'eletheme_before_main_content', 'post_type_container', 25 );
 function post_type_content($content){
 	global $post,$wp_query; 
 
-	if ($wp_query->queried_object_id  !=  $post->ID && !defined('ARCHIVE_LOOP')) return $content; // prevents infinite loop
+	if ($wp_query->queried_object_id  !=  $post->ID && !defined('ARCHIVE_LOOP')) return parse_content($content); // prevents infinite loop
 
 	if (is_single()) {
 		$after="[single]";
@@ -163,7 +163,7 @@ function post_type_content($content){
 	$page = get_current_template($after); // get the template
 	if($page) return  parse_content(get_eletheme($page->ID),$post,$content);
 
-	return $content;
+	return parse_content($content);
 
 
 }
@@ -250,7 +250,11 @@ function parse_content($t,$post=NULL,$content=""){
 
 	// add your own custom vars
 
-	//$custom_vars=apply_filters( 'custom_vars', 'custom' ); //soon
+	$custom_vars=apply_filters( 'eletheme_vars', $custom_vars ); 
+
+	foreach($custom_vars as $key=>$value){
+		$$key=$value;
+	}
 
 /** end seting custom vars **/
 // replacing the keystrings from the template with the actual values. (ie for $content you have {content})
@@ -301,15 +305,7 @@ function passtheid( $widget ) {
 
 }
 
-/*-----------------------------------------------------------------------------------*/
-/* Set the current(global) post to widget rendering not the elementor_library theme post
-/*-----------------------------------------------------------------------------------*/
 
-add_action('elementor/frontend/widget/before_render', function($widget){
-	global $wp_query,$post;
-	$post = get_post( $wp_query->post->ID );
-	setup_postdata( $post ); 
-}, 10, 1);
 /*-----------------------------------------------------------------------------------*/
 /* Define header and footer constants
 /*-----------------------------------------------------------------------------------*/
@@ -323,7 +319,7 @@ function set_eletheme(){
 				$page = get_page_by_title('[body]', OBJECT, 'elementor_library');
 		if($page) 
 			list($myhead,$myfooter)=explode("{{content}}",get_eletheme($page->ID));
-		define( 'ELE_HEADER',clean_header($myhead));
-		define( 'ELE_FOOTER',$myfooter);
+		define( 'ELE_HEADER',parse_content(clean_header($myhead)));
+		define( 'ELE_FOOTER',parse_content($myfooter));
 }
 add_action( 'wp_head', 'set_eletheme', 23 );
